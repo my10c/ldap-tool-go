@@ -104,7 +104,7 @@ var (
 	myAuthor    = "Luc Suryo"
 	myCopyright = "Copyright 2019 - " + strconv.Itoa(now.Year()) + " ©Badassops LLC"
 	myLicense   = "License 3-Clause BSD, https://opensource.org/licenses/BSD-3-Clause ♥"
-	myEmail     = "<luc@my10c.com>"
+	myEmail     = "<luc@badassops.com>"
 	MyInfo      = fmt.Sprintf("%s (version %s)\n%s\n%s\nWritten by %s %s\n",
 		MyProgname, MyVersion, myCopyright, myLicense, myAuthor, myEmail)
 	MyDescription = "Simple script to manage LDAP users, groups and SUDO rules"

@@ -1,0 +1,44 @@
+
+dn: cn=nogroup,ou=groups,dc=co,dc=my10c,dc=com
+objectClass: posixGroup
+cn: nogroup
+gidNumber: 10666
+
+dn: ou=users,dc=op,dc=my10c,dc=com
+objectClass: organizationalUnit
+ou: Users
+
+dn: ou=groups,dc=op,dc=my10c,dc=com
+objectClass: organizationalUnit
+ou: Groups
+
+dn: cn=ansible,ou=groups,dc=op,dc=my10c,dc=com
+objectClass: posixGroup
+cn: ansible
+gidNumber: 400
+
+dn: cn=devops,ou=groups,dc=op,dc=my10c,dc=com
+objectClass: posixGroup
+cn: devops
+gidNumber: 777
+
+dn: cn=sre,ou=groups,dc=op,dc=my10c,dc=com
+objectClass: posixGroup
+cn: sre
+gidNumber: 1000
+
+dn: cn=engineering,ou=groups,dc=op,dc=my10c,dc=com
+objectClass: posixGroup
+cn: engineering
+gidNumber: 2000
+
+dn: cn=datascientist,ou=groups,dc=op,dc=my10c,dc=com
+objectClass: posixGroup
+cn: datascientist
+gidNumber: 3000
+
+dn: cn=qa,ou=groups,dc=op,dc=my10c,dc=com
+objectClass: posixGroup
+cn: qa
+gidNumber: 4000
+

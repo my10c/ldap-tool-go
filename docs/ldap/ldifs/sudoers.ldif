@@ -1,0 +1,64 @@
+
+dn: ou=SUDOers,dc=op,dc=my10c,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: SUDOers
+
+dn: cn=defaults,ou=SUDOers,dc=op,dc=my10c,dc=com
+objectClass: top
+objectClass: sudoRole
+cn: defaults
+sudoOption: ignore_dot
+sudoOption: shell_noargs
+sudoOption: mail_badpass
+sudoOption: mail_no_user
+sudoOption: mail_no_host
+sudoOption: mail_no_perms
+sudoOption: insults
+sudoOption: log_year
+sudoOption: env_keep+="HOME PS1 PS2 PROMPT"
+sudoOption: secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+sudoOrder: 1
+
+dn: cn=root,ou=SUDOers,dc=op,dc=my10c,dc=com
+objectClass: top
+objectClass: sudoRole
+cn: root
+sudoUser: root
+sudoHost: ALL
+sudoCommand: ALL
+sudoOption: !authenticate
+sudoOrder: 2
+
+dn: cn=ALL,ou=SUDOers,dc=op,dc=my10c,dc=com
+objectClass: top
+objectClass: sudoRole
+cn: ALL
+sudoUser: ALL
+sudoHost: ALL
+sudoCommand: /usr/bin/sudo -l
+sudoOption: !authenticate
+sudoOrder: 2
+
+dn: cn=%devops,ou=SUDOers,dc=op,dc=my10c,dc=com
+objectClass: top
+objectClass: sudoRole
+cn: %admin
+sudoUser: %admin
+sudoHost: ALL
+sudoRunAsUser: ALL
+sudoCommand: ALL
+sudoOption: !authenticate
+sudoOrder: 3
+
+dn: cn=%sre,ou=SUDOers,dc=op,dc=my10c,dc=com
+objectClass: top
+objectClass: sudoRole
+cn: %sre
+sudoUser: %sre
+sudoHost: ALL
+sudoRunAsUser: ALL
+sudoCommand: ALL
+sudoOption: !authenticate
+sudoOrder: 3
+

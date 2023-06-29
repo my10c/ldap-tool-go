@@ -1,0 +1,11 @@
+
+dn: cn=vpn,ou=groups,dc=op,dc=my10c,dc=com
+objectClass: groupOfNames
+cn: vpn
+member: uid=initial-user,ou=users,dc=co,dc=my10c,dc=com
+
+dn: cn=admins,ou=groups,dc=op,dc=my10c,dc=com
+objectClass: groupOfNames
+cn: admins
+member: uid=initial-user,ou=users,dc=co,dc=my10c,dc=com
+

@@ -1,0 +1,6 @@
+
+dn: cn=config
+replace: olcPasswordCryptSaltFormat
+olcPasswordCryptSaltFormat: $%.16
+
+

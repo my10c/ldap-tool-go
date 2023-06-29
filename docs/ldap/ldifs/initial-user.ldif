@@ -1,0 +1,28 @@
+
+dn: uid=initial-user,ou=users,dc=co,dc=my10c,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: ldapPublicKey
+uid: initial-user
+sn: LDAP
+givenName: Initial-user
+cn: Initial-user LDAP
+mail: initial-user@my10c.com
+displayName: Initial-user LDAP
+uidNumber: 666
+gidNumber: 66
+userPassword: verySecretReally
+gecos: Initial-user LDAP
+departmentNumber: LDAP
+loginShell: /bin/zsh
+homeDirectory: /home/initial-user
+shadowLastChange: 18322
+shadowExpire: -1
+shadowMax: 180
+shadowWarning: 14
+sshPublicKey: none
+

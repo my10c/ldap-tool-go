@@ -1,0 +1,25 @@
+
+dn: cn=module{0},cn=config
+changetype: modify
+add: olcModuleLoad
+olcModuleLoad: syncprov
+
+dn: olcDatabase={1}mdb,cn=config
+changetype: modify
+add: olcDbIndex
+olcDbIndex: entryUUID eq
+-
+add: olcSyncrepl
+olcSyncrepl: rid=111 <----- EACH REPLICA MUST HAVE AN UNIQUE RID VALUE
+  provider=ldap://ldap-main.co.my10c.com <---- EXAMPLE
+  bindmethod=simple
+  binddn="cn=replicator,dc=op,dc=my10c,dc=com"
+  credentials=123isnotverysecret 
+  searchbase="dc=op,dc=my10c,dc=com"
+  schemachecking=on
+  type=refreshAndPersist
+  starttls=critical tls_reqcert=demand
+  retry="60 +"
+-
+add: olcUpdateRef
+olcUpdateRef: ldap://ldap-main.co.my10c.com <---- EXAMPLE

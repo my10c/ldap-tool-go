@@ -1,0 +1,26 @@
+# binary files
+**tar.gz
+ldap-tool
+ldap-tool_Darwin_x86_64
+ldap-tool_Linux_x86_64
+ldap-tool-luc.go
+release/
+CHANGELOG/CHANGELOG-template
+
+# vim swap files
+**.swp
+**.swo
+
+# OSX
+**.DS_Store
+
+# config with private into and test scripts
+test/config.ini
+test/ldap
+test/test*
+
+# temp files
+**.g
+
+# saved files
+.saved/*

@@ -1,26 +1,53 @@
-# binary files
-**tar.gz
-ldap-tool
-ldap-tool_Darwin_x86_64
-ldap-tool_Linux_x86_64
-ldap-tool-luc.go
-release/
-CHANGELOG/CHANGELOG-template
+# If you prefer the allow list template instead of the deny list, see community template:
+# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
+#
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
 
-# vim swap files
-**.swp
-**.swo
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
 
 # OSX
-**.DS_Store
+.DS_Store
 
-# config with private into and test scripts
-test/config.ini
-test/ldap
-test/test*
+# vim
+*.swp
 
-# temp files
-**.g
+# Go workspace file
+go.work
 
-# saved files
-.saved/*
+# local work
+Makefile
+
+# binary files
+ldap-tool
+release/ldap-tool_Darwin_arm64
+release/ldap-tool_Darwin_arm64.sha256
+release/ldap-tool_Darwin_arm64.tar.gz
+
+release/ldap-tool_Linux_aarch64
+release/ldap-tool_Linux_aarch64.sha256
+release/ldap-tool_Linux_aarch64.tar.gz
+
+release/ldap-tool_Linux_x86_64
+release/ldap-tool_Linux_x86_64.sha256
+release/ldap-tool_Linux_x86_64.tar.gz
+
+# change log
+CHANGELOG/CHANGELOG-template
+
+# own stuff to be ignored
+docs/base-example.png
+
+# no test
+test

@@ -27,7 +27,7 @@
 go.work
 
 # local work
-Makefile
+# Makefile
 
 # binary files
 ldap-tool

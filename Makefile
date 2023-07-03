@@ -12,7 +12,8 @@ ifeq ($(UNAME_S),Darwin)
 	OS_ID = Darwin_$(UNAME_M)
 endif
 
-SOURCES = ldap-tool.go \
+CODE_NAME = ldap-tool
+SOURCES = $(CODE_NAME).go \
 	mod/vars/vars.go \
 	mod/initializer/initializer.go \
 	mod/ldap/create.go \
@@ -51,28 +52,31 @@ SOURCES = ldap-tool.go \
 BUILT_SOURCES = $(SOURCES)
 TOOL_VERSION := $(shell cat mod/vars/vars.go | grep MyVersion | egrep -v MyProgname | awk '{print $$3}')
 
-all:	release/ldap-tool_$(OS_ID) \
-		release/ldap-tool_$(OS_ID).tar.gz \
-		release/ldap-tool_$(OS_ID).sha256
+all:	release/$(CODE_NAME)_$(OS_ID) \
+		release/$(CODE_NAME)_$(OS_ID).tar.gz \
+		release/$(CODE_NAME)_$(OS_ID).sha256
 
-release/ldap-tool_$(OS_ID): $(BUILT_SOURCES)
-	@echo "build the ldap-tool_$(OS_ID) binary..."
-	@go build -o release/ldap-tool_$(OS_ID) ldap-tool.go
+release/$(CODE_NAME)_$(OS_ID): $(BUILT_SOURCES)
+	@echo "build the $(CODE_NAME)_$(OS_ID) binary..."
+	@go build -o release/$(CODE_NAME)_$(OS_ID) $(CODE_NAME).go
+	@echo "set owner and strip the binary"
+	@chown luc:$(GID) release/$(CODE_NAME)_$(OS_ID)
+	@strip release/$(CODE_NAME)_$(OS_ID)
 
-release/ldap-tool_$(OS_ID).tar.gz: release/ldap-tool_$(OS_ID)
-	@echo "create the ldap-tool_$(OS_ID).tar.gz archive..."
-	@(cd release ; tar zcf ldap-tool_$(OS_ID).tar.gz ldap-tool_$(OS_ID))
+release/$(CODE_NAME)_$(OS_ID).tar.gz: release/$(CODE_NAME)_$(OS_ID)
+	@echo "create the $(CODE_NAME)_$(OS_ID).tar.gz archive..."
+	@(cd release ; tar zcf $(CODE_NAME)_$(OS_ID).tar.gz $(CODE_NAME)_$(OS_ID))
 
-release/ldap-tool_$(OS_ID).sha256: release/ldap-tool_$(OS_ID).tar.gz
+release/$(CODE_NAME)_$(OS_ID).sha256: release/$(CODE_NAME)_$(OS_ID).tar.gz
 	@echo "create the sha256 information file..."
-	@sha256sum release/ldap-tool_$(OS_ID).tar.gz | awk '{print $$1}' > release/ldap-tool_$(OS_ID).sha256
-	@echo "SHA256: $$(cat release/ldap-tool_$(OS_ID).sha256)"
+	@sha256sum release/$(CODE_NAME)_$(OS_ID).tar.gz | awk '{print $$1}' > release/$(CODE_NAME)_$(OS_ID).sha256
+	@echo "SHA256: $$(cat release/$(CODE_NAME)_$(OS_ID).sha256)"
 
-install: release/ldap-tool_$(OS_ID)
-	@echo "Installing the new ldap-tool binary..."
-	@sudo cp release/ldap-tool_$(OS_ID) /usr/local/sbin/ldap-tool
-	@sudo chmod 0755 /usr/local/sbin/ldap-tool
-	@sudo chown 0:0 /usr/local/sbin/ldap-tool
+install: release/$(CODE_NAME)_$(OS_ID)
+	@echo "Installing the new $(CODE_NAME) binary..."
+	@sudo cp release/$(CODE_NAME)_$(OS_ID) /usr/local/sbin/$(CODE_NAME)
+	@sudo chmod 0755 /usr/local/sbin/$(CODE_NAME)
+	@sudo chown 0:0 /usr/local/sbin/$(CODE_NAME)
 
 clean:
 	@rm -f release/*$(OS_ID)*

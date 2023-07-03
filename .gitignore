@@ -28,6 +28,8 @@ go.work
 
 # local work
 # Makefile
+bin/*
+template/*
 
 # binary files
 ldap-tool

@@ -160,6 +160,8 @@ func createModifyUserRecord(conn *ldap.Connection, records *ldapv3.SearchResult,
 				if !funcs.I.IsInList(conn.Config.DefaultValues.ValidShells, valueEntered) {
 					funcs.P.PrintRed("\t\tInvalid shell was given, it will be ignored\n")
 					valueEntered = ""
+				} else {
+					valueEntered = "/bin/" + valueEntered
 				}
 			}
 

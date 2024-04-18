@@ -1,4 +1,4 @@
-## <span style="color: red;">DAP-TOOL</span>
+## <span style=color:red;>LDAP-TOOL</span>
 Simple tool wriiten in Go to manage OpenLDAP users and groups
 
 ### Background

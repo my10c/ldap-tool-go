@@ -1,5 +1,4 @@
 ## LDAP-TOOL
-<span style=color:red;>INFO</span>
 Simple tool written in Go to manage OpenLDAP users and groups
 
 ### Background

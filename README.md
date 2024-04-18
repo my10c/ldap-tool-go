@@ -1,5 +1,6 @@
-## <span style=color:red;>LDAP-TOOL</span>
-Simple tool wriiten in Go to manage OpenLDAP users and groups
+## LDAP-TOOL
+<span style=color:red;>INFO</span>
+Simple tool written in Go to manage OpenLDAP users and groups
 
 ### Background
 The script is based on a certain LDAP settings
